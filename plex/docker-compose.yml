@@ -1,0 +1,17 @@
+---
+version: "3.6"
+services:
+  plex:
+    container_name: plex
+    environment:
+      - PUID=1000
+      - PGID=100
+      - VERSION=docker
+    image: lscr.io/linuxserver/plex:latest
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - /ssd01/appdata/plex/config:/config
+      - /hdd01/media/Movies:/movies
+      - /hdd01/media/Music:/music
+      - /hdd01/media/TVShows:/tv
